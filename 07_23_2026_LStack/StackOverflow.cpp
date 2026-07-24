@@ -1,3 +1,5 @@
+#ifndef STACKOVERFLOW_CPP
+#define STACKOVERFLOW_CPP
 /* **********************************************************
 *  Author : Ali Azhari   
 *  Created On : Thu Jul 23 2026
@@ -27,4 +29,5 @@ class StackOverflow {
             return msg;
         }
 };
+#endif
 
