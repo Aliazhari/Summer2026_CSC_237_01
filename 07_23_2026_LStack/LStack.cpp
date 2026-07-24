@@ -29,6 +29,15 @@ class LStack  {
             size = 0;
             top = nullptr;
         }
+        ~LStack() {
+            Node<T> *walker = top;
+            while(walker != nullptr) {
+                top = top->getNext();
+                walker->setNext(nullptr);
+                delete walker;
+                walker = top;
+            }
+        }
 
         void push(T item) {
             Node<T> *newNode = new Node<T>(item);
