@@ -1,23 +1,7 @@
+#ifndef STACK_CPP
+#define STACK_CPP
 #include "StackOverflow.cpp"
-template <class T>
-class Node {
-
-private:
-    T data;
-    Node<T> *next;
-
-public:
-    Node(T data)
-    {
-        this->data = data;
-        next = nullptr;
-    }
-    T getData() const { return data; }
-    Node<T> getNext() const { return next; }
-    void setData(T data) { this->data = data; }
-    void setNext(Node<T> next) { this->next = next; }
-};
-
+#include <ostream>
 template <class T>
 class Stack {
 
@@ -43,12 +27,32 @@ class Stack {
             elements[++top] = item;
         }
 
+        T pop() {
+            if(isEmpty()) throw StackOverflow("Can't pop - Stackoverflow");
+            return elements[top--];
+        }
+
         bool isFull() {
             return top == capacity -1;
         }
         bool isEmpty() {
             return top == -1;
         }
+        int getTop()const { return top;}
 
+        std::string toString() {
+            std::string msg = "[";
+            if (isEmpty()) 
+                msg = "List is empty";
+            else {
+                for (int i= 0; i <= top; i++) {
+                    msg = msg + " " + std::to_string(elements[i]);
+                }
+            }
+            msg += "]";
+            return msg;
+            
+        }
 
 };
+#endif
