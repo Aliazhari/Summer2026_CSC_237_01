@@ -18,9 +18,11 @@
 #include <string>
 class StackOverflow {
     private:
-        std::string msg = "StackOverflow";
+        std::string msg;
     public:
-        StackOverflow() : StackOverflow(msg) {}
+        StackOverflow(){
+            msg = "StackOverflow";
+        } 
 
         StackOverflow(std::string msg) {
             this->msg = msg;
