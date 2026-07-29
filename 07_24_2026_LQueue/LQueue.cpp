@@ -13,6 +13,7 @@
 * *****************************************************************/
 
 #include "QueueException.cpp"
+#include "Node.cpp"
 #include <ostream>
 template <class T>
 class LQueue {
@@ -41,21 +42,21 @@ class LQueue {
         size++;
     }
 
-    T dequeu() {
+    T dequeue() {
 
         if (isEmpty()) throw QueueException("Can't dequeue - Queue is empty");
 
         Node<T> *temp = front;
         T value = temp->getData();
-        front = fron->getNext();
-        if (size == 1) queue = front;
+        front = front->getNext();
+        if (size == 1) rear = front;
         size--;
         delete temp;
         return value;
     }
 
     void display() {
-        if (isEmpty) 
+        if (isEmpty()) 
             std::cout << "List is empty" << std::endl;
         else {
             Node<T> *walker = front;
@@ -66,6 +67,16 @@ class LQueue {
         }
     }
 
+    // Destructor
+    ~LQueue() {
+        Node<T> * temp = front;
+        while (front != nullptr) {
+            front = front->getNext();
+            delete temp;
+            temp = front;
+        }
+        front = rear = nullptr;
+    }
 
 };
 #endif

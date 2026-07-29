@@ -18,17 +18,17 @@ class Node {
     T data;
     Node<T> *next;
 
-    private:
+    public:
     Node(T data) {
         this->data = data;
         this->next = nullptr;
     }
     // Getters
     T getData() const { return data; }
-    Node<T> getNext() const { return next; }
+    Node<T> *getNext() const { return next; }
 
     // Setters
     void setData(T data) { this->data = data; }
-    void setNext(Node<T> next) { this->next = next; }
+    void setNext(Node<T> *next) { this->next = next; }
 };
 #endif
