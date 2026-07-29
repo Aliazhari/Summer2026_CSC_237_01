@@ -3,7 +3,7 @@
 /* **********************************************************
 *  Author : Ali Azhari   
 *  Created On : Fri Jul 24 2026
-*  File : StackOverflow.cpp
+*  File : QueueException.cpp
 *  Description: The QueueException class defines a simple custom 
 *               exception that is thrown when an attempt is made 
 *               to dequeue an element from en empty queue. 
